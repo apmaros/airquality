@@ -119,21 +119,46 @@ def main():
         page_icon="📊",
         layout="wide",
     )
+    st.markdown("""
+    <style>
+        .block-container { padding-top: 1.5rem; padding-bottom: 2rem; }
+        [data-testid="stAppViewContainer"] { background: #f9f9f7; }
+        h1 { color: #0b0b0b; }
+        .stButton button { font-size: 0.85rem; }
+
+        /* 1. Hides the running runner/bike status icon entirely */
+        [data-testid="stStatusWidget"] {
+            display: none !important;
+        }
+
+        /* 2. Hides the floating action banner / refresh prompt at the top */
+        [data-testid="stDecoration"] {
+            display: none !important;
+        }
+
+        /* 3. Forces the specific dev/refresh notification block to vanish */
+        div[class^="stAppDeployWithLayout"], 
+        div[class*="stAppDeployWithLayout"],
+        .stAppDeployWithLayout {
+            display: none !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
     # Modified CSS block: Hides the status widget specifically
     st.markdown("""
-<style>
-    .block-container { padding-top: 1.5rem; padding-bottom: 2rem; }
-    [data-testid="stAppViewContainer"] { background: #f9f9f7; }
-    h1 { color: #0b0b0b; }
-    .stButton button { font-size: 0.85rem; }
-
-    /* Hides the running status icon entirely */
-    [data-testid="stStatusWidget"] {
-        display: none !important;
-    }
-</style>
-""", unsafe_allow_html=True)
+        <style>
+            .block-container { padding-top: 1.5rem; padding-bottom: 2rem; }
+            [data-testid="stAppViewContainer"] { background: #f9f9f7; }
+            h1 { color: #0b0b0b; }
+            .stButton button { font-size: 0.85rem; }
+        
+            /* Hides the running status icon entirely */
+            [data-testid="stStatusWidget"] {
+                display: none !important;
+            }
+        </style>
+        """, unsafe_allow_html=True)
 
     # Modified CSS block: Hides both the spinner icon AND the pop-up refresh banner
     st.markdown("""
