@@ -8,10 +8,10 @@ import streamlit as st
 API_BASE = "https://api.daxplr.com/measurements"
 
 METRICS = [
-    {"key": "co2",         "label": "CO₂",         "unit": "ppm", "color": "#2a78d6", "color_dark": "#3987e5"},
-    {"key": "temperature", "label": "Temperature",  "unit": "°C",  "color": "#1baf7a", "color_dark": "#199e70"},
-    {"key": "humidity",    "label": "Humidity",     "unit": "%",   "color": "#eda100", "color_dark": "#c98500"},
-    {"key": "battery",     "label": "Battery",      "unit": "%",   "color": "#008300", "color_dark": "#008300"},
+    {"key": "co2", "label": "CO₂", "unit": "ppm", "color": "#2a78d6", "color_dark": "#3987e5"},
+    {"key": "temperature", "label": "Temperature", "unit": "°C", "color": "#1baf7a", "color_dark": "#199e70"},
+    {"key": "humidity", "label": "Humidity", "unit": "%", "color": "#eda100", "color_dark": "#c98500"},
+    {"key": "battery", "label": "Battery", "unit": "%", "color": "#008300", "color_dark": "#008300"},
 ]
 
 REFRESH_INTERVAL = 30  # seconds
@@ -120,12 +120,18 @@ def main():
         layout="wide",
     )
 
+    # Modified CSS block: Hides the status widget specifically
     st.markdown("""
 <style>
     .block-container { padding-top: 1.5rem; padding-bottom: 2rem; }
     [data-testid="stAppViewContainer"] { background: #f9f9f7; }
     h1 { color: #0b0b0b; }
     .stButton button { font-size: 0.85rem; }
+
+    /* Hides the running status icon entirely */
+    [data-testid="stStatusWidget"] {
+        display: none !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
