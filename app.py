@@ -14,7 +14,7 @@ METRICS = [
     {"key": "battery", "label": "Battery", "unit": "%", "color": "#008300", "color_dark": "#008300"},
 ]
 
-REFRESH_INTERVAL = 30  # seconds
+REFRESH_INTERVAL = 60  # seconds
 
 
 def fetch(metric_key: str) -> list[dict]:
