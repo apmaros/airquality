@@ -135,6 +135,25 @@ def main():
 </style>
 """, unsafe_allow_html=True)
 
+    # Modified CSS block: Hides both the spinner icon AND the pop-up refresh banner
+    st.markdown("""
+    <style>
+        .block-container { padding-top: 1.5rem; padding-bottom: 2rem; }
+        [data-testid="stAppViewContainer"] { background: #f9f9f7; }
+        h1 { color: #0b0b0b; }
+        .stButton button { font-size: 0.85rem; }
+
+        /* Hides the running status icon entirely */
+        [data-testid="stStatusWidget"] {
+            display: none !important;
+        }
+
+        /* Hides the floating action banner / refresh prompt at the top */
+        [data-testid="stDecoration"] {
+            display: none !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
     col_title, col_refresh = st.columns([5, 1])
     with col_title:
         st.markdown("## Daxplr")
